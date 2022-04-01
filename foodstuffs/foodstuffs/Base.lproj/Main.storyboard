@@ -72,8 +72,15 @@
                     <navigationItem key="navigationItem" title="foodstuffs" id="LMj-V1-iBb">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="doc-d5-tVX">
                             <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <action selector="addFood:" destination="BYZ-38-t0r" id="b7d-wl-0Z8"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="progressBar" destination="h2k-e7-8yf" id="iB7-bq-nyU"/>
+                        <outlet property="progressLabel" destination="I0c-k0-tQN" id="ZAM-vt-yV3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
