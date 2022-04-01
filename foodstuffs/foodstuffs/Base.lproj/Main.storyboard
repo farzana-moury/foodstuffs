@@ -11,7 +11,7 @@
         <!--foodstuffs-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="foodstuffs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="foodstuffs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,24 +22,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="K6Q-R0-3Jb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="K6Q-R0-3Jb">
                                 <rect key="frame" x="0.0" y="191" width="414" height="705"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodstuff" textLabel="BjU-Fq-hXy" imageView="L9J-jB-PBQ" style="IBUITableViewCellStyleDefault" id="yTy-ca-j3j">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="10" reuseIdentifier="foodstuff" textLabel="BjU-Fq-hXy" imageView="L9J-jB-PBQ" style="IBUITableViewCellStyleDefault" id="yTy-ca-j3j">
+                                        <rect key="frame" x="20" y="49.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yTy-ca-j3j" id="9on-xe-wwf">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BjU-Fq-hXy">
-                                                    <rect key="frame" x="56.75" y="0.0" width="337.25" height="43.5"/>
+                                                    <rect key="frame" x="56.75" y="0.0" width="297.25" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="cart" catalog="system" id="L9J-jB-PBQ">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="cart" catalog="system" id="L9J-jB-PBQ">
                                                     <rect key="frame" x="18.75" y="13" width="23" height="18.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="tintColor" systemColor="systemTealColor"/>
@@ -78,6 +78,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="groceryList" destination="K6Q-R0-3Jb" id="sHb-uK-zBF"/>
                         <outlet property="progressBar" destination="h2k-e7-8yf" id="iB7-bq-nyU"/>
                         <outlet property="progressLabel" destination="I0c-k0-tQN" id="ZAM-vt-yV3"/>
                     </connections>

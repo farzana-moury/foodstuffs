@@ -17,6 +17,11 @@ class FoodStore {
         return paths[0]
     }
     
+    func addFoodItem(item: FoodItem){
+        foodItems.append(item)
+        saveFoodItems()
+    }
+    
     func removeFoodItem(item: FoodItem){
         for (index, foodItem) in foodItems.enumerated(){
             if foodItem == item {
