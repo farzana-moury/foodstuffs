@@ -12,6 +12,7 @@ class MainViewController: UIViewController {
     //MARK: - Properties
     var foodItem: FoodItem!
     var foodStore: FoodStore!
+    var total: Int = 0
     
     //MARK: - IBOutlets
     @IBOutlet weak var progressLabel: UILabel!
@@ -56,8 +57,13 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         foodStore = FoodStore()
+        
         groceryList.delegate = self
         groceryList.dataSource = self
+        
+        progressBar.setProgress(0, animated: false)
+        
+        total = foodStore.foodItems.count
         
     }
 }
@@ -94,9 +100,15 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let completeAction = UIContextualAction(style: .normal, title: "Complete", handler: { (action, view, completion) in
+            
             self.foodItem = self.foodStore.foodItems[indexPath.row]
             self.foodStore.removeFoodItem(item: self.foodItem)
+            
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            self.total = self.foodStore.foodItems.count
+            self.progressBar.setProgress(Float(1 / Double(self.total + 1)), animated: false)
+            
             completion(true)
         })
         completeAction.backgroundColor = .systemGreen
