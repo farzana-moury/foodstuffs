@@ -82,11 +82,26 @@ extension MainViewController: UITableViewDataSource {
         //referencing the table cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "foodstuff", for: indexPath)
         
-        //setting the fodd item in the cell
-        let item = foodStore.foodItems[indexPath.row]
+        //setting the food item in the cell
+        foodItem = foodStore.foodItems[indexPath.row]
         
-        cell.textLabel?.text = item.foodItem
+        cell.textLabel?.text = foodItem.foodItem
         
         return cell
+    }
+    
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let completeAction = UIContextualAction(style: .normal, title: "Complete", handler: { (action, view, completion) in
+            self.foodItem = self.foodStore.foodItems[indexPath.row]
+            self.foodStore.removeFoodItem(item: self.foodItem)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            completion(true)
+        })
+        completeAction.backgroundColor = .systemGreen
+        
+        let config = UISwipeActionsConfiguration(actions: [completeAction])
+        return config
     }
 }
