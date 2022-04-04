@@ -37,9 +37,9 @@ class MainViewController: UIViewController {
                 return
             }
             
-            let newFoodItem = FoodItem(foodItem: text)
+            self?.foodItem = FoodItem(foodItem: text)
             
-            self?.foodStore.addFoodItem(item: newFoodItem)
+            self?.foodStore.addFoodItem(item: self?.foodItem ?? FoodItem(foodItem: "Default"))
     
             //reload the tableView (aka grocery list)
             self?.groceryList.reloadData()
@@ -58,12 +58,16 @@ class MainViewController: UIViewController {
         
         foodStore = FoodStore()
         
+        //loading the items that were saved
+        foodStore.loadFoodItem()
+        
         groceryList.delegate = self
         groceryList.dataSource = self
         
-        progressBar.setProgress(0, animated: false)
-        
         total = foodStore.foodItems.count
+        
+        //setting the progress
+        progressBar.setProgress(Float(1 / Double(total + 1)), animated: false)
         
     }
 }
