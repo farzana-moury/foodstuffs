@@ -131,8 +131,6 @@ extension MainViewController: UITableViewDataSource {
                 alertController.addAction(action)
             
                 self.present(alertController, animated: true)
-                
-                self.progressBar.setProgress(0, animated: false)
             }
             
             completion(true)
