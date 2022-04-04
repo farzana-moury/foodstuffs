@@ -43,6 +43,11 @@ class MainViewController: UIViewController {
     
             //reload the tableView (aka grocery list)
             self?.groceryList.reloadData()
+            
+            //resetting the progress label if we have completed the list
+            if(self?.total == 0){
+                self?.progressBar.setProgress(0, animated: false)
+            }
         })
         
         //adding actions and presenting the alert
@@ -66,9 +71,12 @@ class MainViewController: UIViewController {
         
         total = foodStore.foodItems.count
         
-        //setting the progress
-        progressBar.setProgress(Float(1 / Double(total + 1)), animated: false)
-        
+        //setting the progress if we still have foodstuffs to check off
+        if total != 0 {
+            progressBar.setProgress(Float(1 / Double(total + 1)), animated: false)
+        }else{
+            progressBar.setProgress(0, animated: false)
+        }
     }
 }
 
@@ -112,6 +120,20 @@ extension MainViewController: UITableViewDataSource {
             
             self.total = self.foodStore.foodItems.count
             self.progressBar.setProgress(Float(1 / Double(self.total + 1)), animated: false)
+            
+            //if all of our foodstuffs have been checked off our grocery list
+            if self.total == 0 {
+                //adding an alert controller
+                let alertController = UIAlertController(title: "Congratulations! 🎉", message: "You completed your grocery list 🐰", preferredStyle: .alert)
+                
+                let action = UIAlertAction(title: "Awesome!", style: .cancel, handler: nil)
+                
+                alertController.addAction(action)
+            
+                self.present(alertController, animated: true)
+                
+                self.progressBar.setProgress(0, animated: false)
+            }
             
             completion(true)
         })

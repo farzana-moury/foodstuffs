@@ -80,7 +80,7 @@
                     <connections>
                         <outlet property="groceryList" destination="K6Q-R0-3Jb" id="sHb-uK-zBF"/>
                         <outlet property="progressBar" destination="h2k-e7-8yf" id="iB7-bq-nyU"/>
-                        <outlet property="progressLabel" destination="I0c-k0-tQN" id="ZAM-vt-yV3"/>
+                        <outlet property="progressLabel" destination="I0c-k0-tQN" id="o8a-Xv-9We"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
